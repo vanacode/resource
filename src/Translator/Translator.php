@@ -55,6 +55,7 @@ class Translator extends LaravelTranslator
         $replace['resources'] = $replace['resources'] ?? $this->resourcePlural($resource, $replace, $locale);
         $replace['resource'] = $replace['resource'] ?? $this->resourceSingular($resource, $replace, $locale);
         $key = VnStr::forceSnake($key);
+
         return $this->common('action.'.$key, $replace, $locale);
     }
 

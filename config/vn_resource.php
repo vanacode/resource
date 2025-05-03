@@ -9,6 +9,6 @@ return [
         // TODO sub prefixed routes,
     ],
     'query_alias' => [
-        'search' => 'search'
-    ]
+        'search' => 'search',
+    ],
 ];

@@ -31,7 +31,7 @@ trait ResourcePropertyTrait
     protected function makeResource(): self
     {
         $subFolders = $this->getClassSubFolders();
-        $subFolders[] = $this->getClassNameWithoutSuffix();
+        $subFolders[] = $this->getClassResourceName();
         foreach ($subFolders as $key => $folder) {
             $subFolders[$key] = Str::kebab($folder);
         }

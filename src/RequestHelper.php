@@ -18,9 +18,9 @@ class RequestHelper
 
     public static function addRequestAttribute(string|array $attributes, mixed $value = null): void
     {
-        if (!is_array($attributes)) {
+        if (! is_array($attributes)) {
             $attributes = [
-                $attributes => $value
+                $attributes => $value,
             ];
         }
         request()->attributes->add($attributes);

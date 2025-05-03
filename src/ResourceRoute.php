@@ -31,6 +31,7 @@ class ResourceRoute
     public static function prefixedRouteUrl(string $action, ...$args): string
     {
         $routeName = self::prefixedRoute($action);
+
         return $routeName ? self::routeUrl($routeName, ...$args) : '';
     }
 
@@ -62,7 +63,7 @@ class ResourceRoute
 
     public static function resourceRoute(string $resource, string $action): ?string
     {
-        $action = Str::finish($resource, '.')  . $action;
+        $action = Str::finish($resource, '.').$action;
 
         return self::prefixedRoute($action);
     }
@@ -76,7 +77,7 @@ class ResourceRoute
 
     public static function matchParameters(string $route): array
     {
-        if (key_exists($route, self::$cachedCoreRouteParams)) {
+        if (array_key_exists($route, self::$cachedCoreRouteParams)) {
             return self::$cachedCoreRouteParams[$route];
         }
         $routeInstance = self::getRouteInstance($route);
@@ -126,7 +127,7 @@ class ResourceRoute
         return array_merge($current, $numericParams, $params);
     }
 
-    protected static function getRouteInstance(? string $route): ?RouteInstance
+    protected static function getRouteInstance(?string $route): ?RouteInstance
     {
         if (empty($route)) {
             return null;
